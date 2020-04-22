@@ -132,13 +132,19 @@ class Screen extends BaseScreen<Types.ScreenPropsType, Types.ScreenStateType> {
   private async onSubmitForm (): Promise<void> {
     const { _id, name, surname, email, phone_number, birthday_date, created } = this.state
 
-    await this.ApiAddUser({
+    if (this.id.length > 0) {
+
+    } else {
+
+    }
+    await this[this.id.length > 0 ? 'ApiEditUser' : 'ApiAddUser']({
+      _id,
       name,
       surname,
       email,
       phone_number,
       birthday_date,
-      created: _id.length > 0 ? created : String(+(new Date())),
+      created: _id && _id.length > 0 ? created : String(+(new Date())),
       updated: String(+(new Date()))
     })
 
@@ -153,7 +159,7 @@ class Screen extends BaseScreen<Types.ScreenPropsType, Types.ScreenStateType> {
       updated: String(+ new Date()),
     })
 
-    if (this.id.length) {
+    if (this.id.length > 0) {
       this.props.navigation.replace('Main')
     } else {
       this.props.navigation.goBack()

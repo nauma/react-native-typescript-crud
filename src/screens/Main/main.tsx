@@ -14,7 +14,7 @@ import * as Types from './types'
 class Screen extends BaseScreen<Types.ScreenPropsType, Types.ScreenStateType> {
   static navigationOptions = ({ navigation, route }: any) => ({
     title: 'Users',
-    headerRight: () => <Button transparent onPress={() => { navigation.navigate('Create'); return; }}><Text>+</Text></Button>
+    headerRight: () => <Button transparent onPress={() => { navigation.navigate('Create'); return; }}><Text style={{fontSize: 25}}>+</Text></Button>
   })
 
   async componentDidMount(): Promise<void> {

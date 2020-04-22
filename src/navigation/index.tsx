@@ -15,9 +15,7 @@ function Navigation() {
     <Stack.Navigator>
       <Stack.Screen name="Main" component={MainScreen} options={MainScreen.navigationOptions} />
       <Stack.Screen name="Get" component={GetScreen} options={GetScreen.navigationOptions} />
-      <Stack.Screen name="Create" component={CreateScreen} options={{ title: 'Добавить пользователя' }} />
-      <Stack.Screen name="Edit" component={EditScreen} options={{ title: 'Ред. пользователя' }} />
-      <Stack.Screen name="Delete" component={MainScreen} options={{ title: 'Удаление пользователя' }} />
+      <Stack.Screen name="Create" component={CreateScreen} options={CreateScreen.navigationOptions} />
     </Stack.Navigator>
   </NavigationContainer>
 }
